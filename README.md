@@ -16,7 +16,10 @@ Se realiza un código para ejecutar según una gramática dada, el conjunto de p
 Como caso base utilizamos una gramática sencilla la cual se encuentra directamente en el código, por lo que no necesita ningún parámetro de entrada al ejecutarlo.
 
 Como ejemplo base tenemos la siguiente gramática:
+
 S -> A uno B C
+S -> S dos
+A -> B C D
 ε
 ```
 grammar = {
