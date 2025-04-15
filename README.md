@@ -9,7 +9,7 @@ Integrantes:
 
 # 🧷 Requerimientos necesarios
 
-Se realiza un código para ejecutar según una gramática dada, el conjunto de primeros, siguientes y producción con el propósito de aprender, tener claridad y poner a prueba los conocimientos sobre el análisis sintáctico descendente.
+Se realiza un código para ejecutar según una gramática dada, el conjunto de primeros, siguientes y predicción con el propósito de aprender, tener claridad y poner a prueba los conocimientos sobre el análisis sintáctico descendente.
 
 ## 💥 Uso:
 
@@ -40,7 +40,7 @@ grammar = {
 }
 ```
 
-Como resultado obtenemos el conjunto de primeros, siguientes y producción:
+Como resultado obtenemos el conjunto de primeros, siguientes y predicción:
 ```
 gra
 ```
@@ -69,7 +69,7 @@ grammar = {
 }
 ```
 
-Como resultado obtenemos el conjunto de primeros, siguientes y producción:
+Como resultado obtenemos el conjunto de primeros, siguientes y predicción:
 ```
 gra
 ```
