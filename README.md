@@ -18,8 +18,11 @@ Como caso base utilizamos una gramática sencilla la cual se encuentra directame
 Como ejemplo base tenemos la siguiente gramática:
 
 S -> A uno B C
+
 S -> S dos
+
 A -> B C D
+
 ε
 ```
 grammar = {
