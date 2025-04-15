@@ -19,16 +19,17 @@ Como ejemplo base tenemos la siguiente gramática:
 
     S -> A uno B C
     S -> S dos
-A -> B C D
-A -> A tres
-A -> ε
-B -> D cuatro C tres
-B -> ε
-C -> cinco D B
-C -> ε
-D -> seis
-D -> ε
+    A -> B C D
+    A -> A tres
+    A -> ε
+    B -> D cuatro C tres
+    B -> ε
+    C -> cinco D B
+    C -> ε
+    D -> seis
+    D -> ε
 
+En el código:
 ```
 grammar = {
     'S':  [['A', 'uno','B','C'], ['S','dos']],
@@ -40,6 +41,35 @@ grammar = {
 ```
 
 Como resultado obtenemos el conjunto de primeros, siguientes y producción:
+```
+gra
+```
 
+Como segundo ejemplo tenemos la siguiente gramática:
 
+    S -> A B uno
+    A -> dos B
+    A -> ε
+    B -> C D
+    B -> tres
+    B -> ε
+    C -> cuatro A B
+    C -> cinco
+    D -> seis
+    D -> ε
 
+En el código:
+```
+grammar = {
+    'S':  [['A', 'B', 'uno'],
+    'A': [['dos', 'B'], ['ε']],
+    'B': [['C', 'D'], ['tres'], ['ε']],
+    'C': [['cuatro','A','B'],['cinco']],
+    'D': [['seis'],['ε']],
+}
+```
+
+Como resultado obtenemos el conjunto de primeros, siguientes y producción:
+```
+gra
+```
