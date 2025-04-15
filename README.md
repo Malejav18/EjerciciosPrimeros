@@ -61,7 +61,7 @@ Como segundo ejemplo tenemos la siguiente gramática:
 En el código:
 ```
 grammar = {
-    'S':  [['A', 'B', 'uno'],
+    'S':  [['A', 'B', 'uno']],
     'A': [['dos', 'B'], ['ε']],
     'B': [['C', 'D'], ['tres'], ['ε']],
     'C': [['cuatro','A','B'],['cinco']],
