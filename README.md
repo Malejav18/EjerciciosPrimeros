@@ -31,7 +31,7 @@ Como ejemplo base tenemos la siguiente gramática:
 
 En el código:
 ```
-grammar = {
+gram = {
     'S':  [['A', 'uno','B','C'], ['S','dos']],
     'A': [['B','C','D'], ['A','tres'], ['ε']],
     'B': [['D','cuatro','C','tres'],['ε']],
@@ -42,7 +42,27 @@ grammar = {
 
 Como resultado obtenemos el conjunto de primeros, siguientes y predicción:
 ```
-gra
+Primeros(S): {'uno', 'tres', 'cuatro', 'cinco', 'seis'}
+Primeros(A): {'ε', 'cuatro', 'tres', 'cinco', 'seis'}
+Primeros(B): {'ε', 'seis', 'cuatro'}
+Primeros(C): {'ε', 'cinco'}
+Primeros(D): {'ε', 'seis'}
+Siguientes(S): {'$', 'dos'}
+Siguientes(A): {'uno', 'tres'}
+Siguientes(B): {'$', 'uno', 'tres', 'cinco', 'seis', 'dos'}
+Siguientes(C): {'$', 'uno', 'tres', 'seis', 'dos'}
+Siguientes(D): {'$', 'uno', 'tres', 'cuatro', 'seis', 'dos'}
+Predicción(S → A uno B C): {'cuatro', 'uno', 'tres', 'cinco', 'seis'}
+Predicción(S → S dos): {'cuatro', 'uno', 'tres', 'cinco', 'seis'}
+Predicción(A → B C D): {'cuatro', 'uno', 'tres', 'cinco', 'seis'}
+Predicción(A → A tres): {'cuatro', 'tres', 'cinco', 'seis'}
+Predicción(A → ε): {'uno', 'tres'}
+Predicción(B → D cuatro C tres): {'seis', 'cuatro'}
+Predicción(B → ε): {'$', 'uno', 'tres', 'cinco', 'seis', 'dos'}
+Predicción(C → cinco D B): {'cinco'}
+Predicción(C → ε): {'$', 'uno', 'tres', 'seis', 'dos'}
+Predicción(D → seis): {'seis'}
+Predicción(D → ε): {'$', 'uno', 'tres', 'cuatro', 'seis', 'dos'}
 ```
 
 Como segundo ejemplo tenemos la siguiente gramática:
@@ -60,7 +80,7 @@ Como segundo ejemplo tenemos la siguiente gramática:
 
 En el código:
 ```
-grammar = {
+gram = {
     'S':  [['A', 'B', 'uno']],
     'A': [['dos', 'B'], ['ε']],
     'B': [['C', 'D'], ['tres'], ['ε']],
@@ -71,5 +91,24 @@ grammar = {
 
 Como resultado obtenemos el conjunto de primeros, siguientes y predicción:
 ```
-gra
+Primeros(S): {'uno', 'tres', 'cuatro', 'dos', 'cinco'}
+Primeros(A): {'dos', 'ε'}
+Primeros(B): {'cuatro', 'ε', 'tres', 'cinco'}
+Primeros(C): {'cinco', 'cuatro'}
+Primeros(D): {'seis', 'ε'}
+Siguientes(S): {'$'}
+Siguientes(A): {'uno', 'tres', '$', 'seis', 'cuatro', 'cinco'}
+Siguientes(B): {'uno', 'seis', 'tres', 'cuatro', '$', 'cinco'}
+Siguientes(C): {'uno', 'seis', 'tres', 'cuatro', '$', 'cinco'}
+Siguientes(D): {'uno', 'seis', 'tres', 'cuatro', '$', 'cinco'}
+Predicción(S → A B uno): {'uno', 'tres', 'cuatro', 'dos', 'cinco'}
+Predicción(A → dos B): {'dos'}
+Predicción(A → ε): {'uno', 'seis', 'tres', 'cuatro', '$', 'cinco'}
+Predicción(B → C D): {'cuatro', 'cinco'}
+Predicción(B → tres): {'tres'}
+Predicción(B → ε): {'uno', 'seis', 'tres', 'cuatro', '$', 'cinco'}
+Predicción(C → cuatro A B): {'cuatro'}
+Predicción(C → cinco): {'cinco'}
+Predicción(D → seis): {'seis'}
+Predicción(D → ε): {'uno', 'seis', 'tres', 'cuatro', '$', 'cinco'}
 ```
