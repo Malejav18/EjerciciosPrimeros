@@ -53,9 +53,9 @@ def siguientes(simb, gram, primeros_sets, siguientes_sets, inicio):
 # Calcular el conjunto Predicción para cada producción de la gramática
 def prediccionesC(gram, primeros_sets, siguientes_sets):
     predicciones = {}
-    for nt, producciones in gram.items():
+    for x, producciones in gram.items():
         for produccion in producciones:
-            key = (nt, tuple(produccion))  # Clave compuesta: (no_terminal, producción)
+            key = (x, tuple(produccion))  # Clave compuesta: (no_terminal, producción)
             pred = set()
             i = 0
             while i < len(produccion):
@@ -67,7 +67,7 @@ def prediccionesC(gram, primeros_sets, siguientes_sets):
                 i += 1
             else:
                 # Si todos los símbolos pueden producir ε, añadimos el conjunto Siguientes del no terminal
-                pred.update(siguientes_sets[nt])
+                pred.update(siguientes_sets[x])
             predicciones[key] = pred
     return predicciones
 
@@ -94,6 +94,6 @@ for no_terminal in gram:
 
 predicciones = prediccionesC(gram, primeros_sets, siguientes_sets)
 
-for (nt, prod), pred in predicciones.items():
+for (x, prod), pred in predicciones.items():
     prod_str = ' '.join(prod)  # Convertimos la producción a string para mejor
-    print(f'Predicción({nt} → {prod_str}): {pred}')
+    print(f'Predicción({x} → {prod_str}): {pred}')
