@@ -1,5 +1,9 @@
 # Calcular el conjunto de Primeros de un símbolo 'simb'
 def primeros(simb, gram, primeros_sets):
+    # Si el conjunto ya fue calculado, lo devolvemos
+    if simb in primeros_sets:
+        return primeros_sets[simb]
+    
     # Inicializamos el conjunto Primeros vacío para 'simb'
     primeros_sets[simb] = set()
     
@@ -69,10 +73,10 @@ def prediccionesC(gram, primeros_sets, siguientes_sets):
 
 # Gramática ejemplo
 gram = {
-    'S':  [['A', 'B', 'uno']],
-    'A': [['dos', 'B'], ['ε']],
-    'B': [['C', 'D'], ['tres'], ['ε']],
-    'C': [['cuatro','A','B'],['cinco']],
+    'S': [['A', 'uno','B','C'], ['S','dos']],
+    'A': [['B','C','D'], ['A','tres'], ['ε']],
+    'B': [['D','cuatro','C','tres'],['ε']],
+    'C': [['cinco','D','B'],['ε']],
     'D': [['seis'],['ε']],
 }
 
@@ -91,5 +95,5 @@ for no_terminal in gram:
 predicciones = prediccionesC(gram, primeros_sets, siguientes_sets)
 
 for (nt, prod), pred in predicciones.items():
-    prod_str = ' '.join(prod)  # Convertimos la producción a string para mejor visualizacion
+    prod_str = ' '.join(prod)  # Convertimos la producción a string para mejor
     print(f'Predicción({nt} → {prod_str}): {pred}')
