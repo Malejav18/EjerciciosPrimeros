@@ -7,9 +7,11 @@ Integrantes:
 - Miguel Suarez 
 - Alejandra Vargas
 
+Se realiza un código para ejecutar según una gramática dada, el conjunto de primeros, siguientes y predicción con el propósito de aprender, tener claridad y poner a prueba los conocimientos sobre el análisis sintáctico descendente.
+
 # 🧷 Requerimientos necesarios
 
-Se realiza un código para ejecutar según una gramática dada, el conjunto de primeros, siguientes y predicción con el propósito de aprender, tener claridad y poner a prueba los conocimientos sobre el análisis sintáctico descendente.
+Para correr el código creado en python, solo necesitamos un ambiente que sea capaz de correr el mismo, ya sea la terminal, un emulador web o visual studio code con el interprete instalado correctamente.
 
 ## 💥 Uso:
 
